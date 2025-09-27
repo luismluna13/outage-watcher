@@ -1,0 +1,32 @@
+name: Outage Watcher
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 minutes
+  workflow_dispatch:        # allow manual run
+
+jobs:
+  run-outage-watcher:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run outage watcher
+        run: python outage_watcher.py
+
+      - name: Upload outage report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: us-outages
+          path: us_outages.json
+
