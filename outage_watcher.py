@@ -37,9 +37,26 @@ def collect_outages():
             })
     return results
 
+def save_as_html(outages):
+    html = ["<html><head><title>US Outage Report</title></head><body>"]
+    html.append(f"<h1>US Outage Report – {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</h1>")
+    html.append("<table border='1' cellpadding='5' cellspacing='0'>")
+    html.append("<tr><th>Carrier</th><th>Summary</th><th>Link</th><th>Time</th></tr>")
+    for o in outages:
+        summary = o.get("summary") or o.get("error", "N/A")
+        html.append(
+            f"<tr><td>{o['carrier']}</td>"
+            f"<td>{summary}</td>"
+            f"<td><a href='{o['url']}'>Status Page</a></td>"
+            f"<td>{o['timestamp']}</td></tr>"
+        )
+    html.append("</table></body></html>")
+    with open("us_outages.html", "w") as f:
+        f.write("\n".join(html))
+
 if __name__ == "__main__":
     outages = collect_outages()
     with open("us_outages.json", "w") as f:
         json.dump(outages, f, indent=2)
-    print(f"Saved {len(outages)} outage summaries to us_outages.json")
-
+    save_as_html(outages)
+    print(f"Saved {len(outages)} outage summaries to us_outages.json and us_outages.html")
