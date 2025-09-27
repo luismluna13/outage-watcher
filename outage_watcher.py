@@ -1,57 +1,68 @@
 import requests, json, datetime, os, webbrowser
-from bs4 import BeautifulSoup
 
-CARRIERS = {
-    "Comcast": "https://downdetector.com/status/xfinity/",
-    "AT&T": "https://downdetector.com/status/att/",
-    "Spectrum": "https://downdetector.com/status/spectrum/",
-    "Verizon": "https://downdetector.com/status/verizon/",
-    "Lumen": "https://downdetector.com/status/centurylink/",
-    "Windstream": "https://downdetector.com/status/windstream/"
-}
+ZIP_CODES = ["32801", "10001", "90001"]  # Orlando, NYC, LA
 
-def scrape_downdetector(url):
-    r = requests.get(url, timeout=20)
-    r.raise_for_status()
-    soup = BeautifulSoup(r.text, "html.parser")
-    summary = soup.find("div", {"class": "entry-content"})
-    return summary.get_text(" ", strip=True) if summary else "No summary found"
+def fetch_xfinity_outage(zipcode):
+    url = f"https://api.xfinity.com/outages-service/v1/location?zip={zipcode}"
+    headers = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
+    try:
+        r = requests.get(url, headers=headers, timeout=10)
+        if r.status_code == 200:
+            return r.json()
+        else:
+            return {"error": f"Xfinity API returned {r.status_code}"}
+    except Exception as e:
+        return {"error": str(e)}
 
-def collect_outages():
+def fetch_att_outage(zipcode):
+    url = "https://www.att.com/outages/"
+    try:
+        r = requests.get(url, timeout=10)
+        return {"note": "AT&T requires login, showing public outage page preview only",
+                "html_preview": r.text[:300]}
+    except Exception as e:
+        return {"error": str(e)}
+
+def check_outages():
     results = []
     now = datetime.datetime.now().isoformat()
-    for name, url in CARRIERS.items():
-        try:
-            text = scrape_downdetector(url)
-            results.append({"carrier": name, "url": url, "summary": text, "timestamp": now})
-        except Exception as e:
-            results.append({"carrier": name, "url": url, "error": str(e), "timestamp": now})
+    for zipc in ZIP_CODES:
+        results.append({
+            "zip": zipc,
+            "time": now,
+            "xfinity": fetch_xfinity_outage(zipc),
+            "att": fetch_att_outage(zipc),
+        })
     return results
 
-def save_json_and_html(outages):
+def save_reports(data):
     os.makedirs("public", exist_ok=True)
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+    # JSON
     with open("public/us_outages.json", "w") as f:
-        json.dump(outages, f, indent=2)
+        json.dump(data, f, indent=2)
 
-    html = ["<html><head><meta charset='utf-8'><title>US Outage Report</title></head><body>"]
-    html.append(f"<h1>US Outage Report – {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</h1>")
-    html.append("<table border='1' cellpadding='6' cellspacing='0'><tr><th>Carrier</th><th>Summary</th><th>Link</th><th>Time</th></tr>")
-    for o in outages:
-        summary = o.get("summary") or o.get("error", "N/A")
-        html.append(
-            f"<tr><td>{o['carrier']}</td>"
-            f"<td>{summary}</td>"
-            f"<td><a href='{o['url']}'>Status Page</a></td>"
-            f"<td>{o['timestamp']}</td></tr>"
-        )
+    # HTML
+    html = [
+        "<html><head><meta charset='utf-8'><title>US Outage Report</title></head><body>",
+        f"<h1>US Outage Report – {now}</h1>",
+        "<table border='1' cellpadding='6' cellspacing='0'>",
+        "<tr><th>ZIP</th><th>Carrier</th><th>Result</th></tr>"
+    ]
+    for entry in data:
+        for carrier, result in [("Xfinity", entry["xfinity"]), ("AT&T", entry["att"])]:
+            html.append(f"<tr><td>{entry['zip']}</td><td>{carrier}</td><td><pre>{str(result)[:400]}</pre></td></tr>")
     html.append("</table></body></html>")
-    with open("public/index.html", "w") as f:
+
+    html_path = "public/index.html"
+    with open(html_path, "w") as f:
         f.write("\n".join(html))
 
+    # Auto-open in browser
+    webbrowser.open(html_path)
+
 if __name__ == "__main__":
-    outages = collect_outages()
-    save_json_and_html(outages)
-    print("Saved public/us_outages.json and public/index.html")
-    # Auto-open in your default browser (Mac)
-    webbrowser.open("public/index.html")
+    outages = check_outages()
+    save_reports(outages)
+    print("✅ Outage reports saved and opened in browser")
