@@ -3,12 +3,20 @@ name: Outage Watcher
 on:
   schedule:
     - cron: "*/30 * * * *"   # every 30 minutes
-  workflow_dispatch:        # allow manual run
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  run-outage-watcher:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -21,14 +29,30 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run outage watcher
+      - name: Run outage watcher (generates public/index.html)
         run: python outage_watcher.py
 
-      - name: Upload outage report artifacts
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Upload JSON/HTML as build artifact (optional)
         uses: actions/upload-artifact@v4.3.3
         with:
           name: us-outages
           path: |
-            us_outages.json
-            us_outages.html
+            public/us_outages.json
+            public/index.html
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
