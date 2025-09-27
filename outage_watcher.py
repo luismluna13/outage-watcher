@@ -1,4 +1,4 @@
-import requests, json, datetime
+import requests, json, datetime, os, webbrowser
 from bs4 import BeautifulSoup
 
 CARRIERS = {
@@ -19,29 +19,24 @@ def scrape_downdetector(url):
 
 def collect_outages():
     results = []
+    now = datetime.datetime.now().isoformat()
     for name, url in CARRIERS.items():
         try:
             text = scrape_downdetector(url)
-            results.append({
-                "carrier": name,
-                "url": url,
-                "summary": text,
-                "timestamp": datetime.datetime.now().isoformat()
-            })
+            results.append({"carrier": name, "url": url, "summary": text, "timestamp": now})
         except Exception as e:
-            results.append({
-                "carrier": name,
-                "url": url,
-                "error": str(e),
-                "timestamp": datetime.datetime.now().isoformat()
-            })
+            results.append({"carrier": name, "url": url, "error": str(e), "timestamp": now})
     return results
 
-def save_as_html(outages):
-    html = ["<html><head><title>US Outage Report</title></head><body>"]
+def save_json_and_html(outages):
+    os.makedirs("public", exist_ok=True)
+
+    with open("public/us_outages.json", "w") as f:
+        json.dump(outages, f, indent=2)
+
+    html = ["<html><head><meta charset='utf-8'><title>US Outage Report</title></head><body>"]
     html.append(f"<h1>US Outage Report – {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</h1>")
-    html.append("<table border='1' cellpadding='5' cellspacing='0'>")
-    html.append("<tr><th>Carrier</th><th>Summary</th><th>Link</th><th>Time</th></tr>")
+    html.append("<table border='1' cellpadding='6' cellspacing='0'><tr><th>Carrier</th><th>Summary</th><th>Link</th><th>Time</th></tr>")
     for o in outages:
         summary = o.get("summary") or o.get("error", "N/A")
         html.append(
@@ -51,12 +46,12 @@ def save_as_html(outages):
             f"<td>{o['timestamp']}</td></tr>"
         )
     html.append("</table></body></html>")
-    with open("us_outages.html", "w") as f:
+    with open("public/index.html", "w") as f:
         f.write("\n".join(html))
 
 if __name__ == "__main__":
     outages = collect_outages()
-    with open("us_outages.json", "w") as f:
-        json.dump(outages, f, indent=2)
-    save_as_html(outages)
-    print(f"Saved {len(outages)} outage summaries to us_outages.json and us_outages.html")
+    save_json_and_html(outages)
+    print("Saved public/us_outages.json and public/index.html")
+    # Auto-open in your default browser (Mac)
+    webbrowser.open("public/index.html")
