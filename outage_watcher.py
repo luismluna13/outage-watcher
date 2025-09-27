@@ -55,14 +55,11 @@ def save_reports(data):
             html.append(f"<tr><td>{entry['zip']}</td><td>{carrier}</td><td><pre>{str(result)[:400]}</pre></td></tr>")
     html.append("</table></body></html>")
 
+     # Save HTML
     html_path = "public/index.html"
     with open(html_path, "w") as f:
         f.write("\n".join(html))
 
-    # Auto-open in browser
-    webbrowser.open(html_path)
-
-if __name__ == "__main__":
-    outages = check_outages()
-    save_reports(outages)
-    print("✅ Outage reports saved and opened in browser")
+    # Auto-open in browser with absolute path
+    abs_path = os.path.abspath(html_path)
+    webbrowser.open(f"file://{abs_path}")
