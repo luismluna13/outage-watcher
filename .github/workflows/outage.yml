@@ -25,7 +25,7 @@ jobs:
         run: python outage_watcher.py
 
       - name: Upload outage report artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: us-outages
           path: us_outages.json
