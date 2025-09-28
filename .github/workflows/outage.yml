@@ -28,10 +28,10 @@ jobs:
       - name: Run outage watcher
         run: python outage_watcher.py
 
-      - name: Upload to Pages
+      - name: Upload public folder to Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: public   # ✅ only deploy the public/ folder
 
   deploy:
     environment:
