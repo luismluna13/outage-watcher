@@ -2,73 +2,55 @@
   {
     "carrier": "Xfinity",
     "zip": "32801",
-    "time": "2025-09-28T00:48:01.243969",
-    "summary": "Error: HTTPSConnectionPool(host='api.xfinity.com', port=443): Max retries exceeded with url: /outages-service/v1/location?zip=32801 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f3f04e18990>: Failed to resolve 'api.xfinity.com' ([Errno -5] No address associated with hostname)\"))",
-    "official": "https://www.xfinity.com/support/statusmap",
-    "fallback": {
-      "Downdetector": "https://downdetector.com/status/xfinity/",
-      "Outage.Report": "https://outage.report/us/xfinity",
-      "IsTheServiceDown": "https://istheservicedown.com/problems/xfinity"
+    "time": "2025-09-28T01:01:13.456317",
+    "result": {
+      "summary": "Error: HTTPSConnectionPool(host='api.xfinity.com', port=443): Max retries exceeded with url: /outages-service/v1/location?zip=32801 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f76379dbc10>: Failed to resolve 'api.xfinity.com' ([Errno -5] No address associated with hostname)\"))",
+      "url": "https://www.xfinity.com/support/statusmap"
     }
   },
   {
     "carrier": "AT&T",
     "zip": "N/A",
-    "time": "2025-09-28T00:48:01.243969",
-    "summary": "AT&T requires login \u2014 showing public outage page preview",
-    "official": "https://www.att.com/outages/",
-    "fallback": {
-      "Downdetector": "https://downdetector.com/status/att/",
-      "Outage.Report": "https://outage.report/us/att",
-      "IsTheServiceDown": "https://istheservicedown.com/problems/att"
+    "time": "2025-09-28T01:01:13.456317",
+    "result": {
+      "summary": "AT&T requires login \u2014 showing public outage page preview",
+      "url": "https://www.att.com/outages/"
     }
   },
   {
     "carrier": "Spectrum",
     "zip": "N/A",
-    "time": "2025-09-28T00:48:01.243969",
-    "summary": "See fallback links",
-    "official": "https://www.spectrum.net/support/internet-service-status/",
-    "fallback": {
-      "Downdetector": "https://downdetector.com/status/spectrum/",
-      "Outage.Report": "https://outage.report/us/spectrum",
-      "IsTheServiceDown": "https://istheservicedown.com/problems/spectrum"
+    "time": "2025-09-28T01:01:13.456317",
+    "result": {
+      "summary": "See fallback links",
+      "url": "https://www.spectrum.net/support/internet-service-status/"
     }
   },
   {
     "carrier": "Verizon",
     "zip": "N/A",
-    "time": "2025-09-28T00:48:01.243969",
-    "summary": "See fallback links",
-    "official": "https://www.verizon.com/support/outage/",
-    "fallback": {
-      "Downdetector": "https://downdetector.com/status/verizon/",
-      "Outage.Report": "https://outage.report/us/verizon",
-      "IsTheServiceDown": "https://istheservicedown.com/problems/verizon"
+    "time": "2025-09-28T01:01:13.456317",
+    "result": {
+      "summary": "See fallback links",
+      "url": "https://www.verizon.com/support/outage/"
     }
   },
   {
     "carrier": "Lumen",
     "zip": "N/A",
-    "time": "2025-09-28T00:48:01.243969",
-    "summary": "See fallback links",
-    "official": "https://www.lumen.com/help/en-us/understanding-service-status.html",
-    "fallback": {
-      "Downdetector": "https://downdetector.com/status/centurylink/",
-      "Outage.Report": "https://outage.report/us/centurylink",
-      "IsTheServiceDown": "https://istheservicedown.com/problems/centurylink"
+    "time": "2025-09-28T01:01:13.456317",
+    "result": {
+      "summary": "See fallback links",
+      "url": "https://www.lumen.com/help/en-us/understanding-service-status.html"
     }
   },
   {
     "carrier": "Windstream",
     "zip": "N/A",
-    "time": "2025-09-28T00:48:01.243969",
-    "summary": "See fallback links",
-    "official": "https://www.windstream.com/support/network-status",
-    "fallback": {
-      "Downdetector": "https://downdetector.com/status/windstream/",
-      "Outage.Report": "https://outage.report/us/windstream",
-      "IsTheServiceDown": "https://istheservicedown.com/problems/windstream"
+    "time": "2025-09-28T01:01:13.456317",
+    "result": {
+      "summary": "See fallback links",
+      "url": "https://www.windstream.com/support/network-status"
     }
   }
 ]
