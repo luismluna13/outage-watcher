@@ -29,21 +29,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run outage watcher (generates public/index.html)
+      - name: Run outage watcher
         run: python outage_watcher.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
-
-      - name: Upload JSON/HTML as build artifact (optional)
-        uses: actions/upload-artifact@v4.3.3
-        with:
-          name: us-outages
-          path: |
-            public/us_outages.json
-            public/index.html
 
   deploy:
     runs-on: ubuntu-latest
