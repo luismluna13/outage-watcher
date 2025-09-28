@@ -1,92 +1,74 @@
 [
   {
+    "carrier": "Xfinity",
     "zip": "32801",
-    "carrier": "Xfinity",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://www.xfinity.com/support/statusmap"
+    "time": "2025-09-28T00:48:01.243969",
+    "summary": "Error: HTTPSConnectionPool(host='api.xfinity.com', port=443): Max retries exceeded with url: /outages-service/v1/location?zip=32801 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f3f04e18990>: Failed to resolve 'api.xfinity.com' ([Errno -5] No address associated with hostname)\"))",
+    "official": "https://www.xfinity.com/support/statusmap",
+    "fallback": {
+      "Downdetector": "https://downdetector.com/status/xfinity/",
+      "Outage.Report": "https://outage.report/us/xfinity",
+      "IsTheServiceDown": "https://istheservicedown.com/problems/xfinity"
     }
   },
   {
-    "zip": "32801",
     "carrier": "AT&T",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://www.att.com/outages/"
-    }
-  },
-  {
-    "zip": "10001",
-    "carrier": "Xfinity",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://www.xfinity.com/support/statusmap"
-    }
-  },
-  {
-    "zip": "10001",
-    "carrier": "AT&T",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://www.att.com/outages/"
-    }
-  },
-  {
-    "zip": "90001",
-    "carrier": "Xfinity",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://www.xfinity.com/support/statusmap"
-    }
-  },
-  {
-    "zip": "90001",
-    "carrier": "AT&T",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://www.att.com/outages/"
-    }
-  },
-  {
     "zip": "N/A",
+    "time": "2025-09-28T00:48:01.243969",
+    "summary": "AT&T requires login \u2014 showing public outage page preview",
+    "official": "https://www.att.com/outages/",
+    "fallback": {
+      "Downdetector": "https://downdetector.com/status/att/",
+      "Outage.Report": "https://outage.report/us/att",
+      "IsTheServiceDown": "https://istheservicedown.com/problems/att"
+    }
+  },
+  {
     "carrier": "Spectrum",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://downdetector.com/status/spectrum/"
+    "zip": "N/A",
+    "time": "2025-09-28T00:48:01.243969",
+    "summary": "See fallback links",
+    "official": "https://www.spectrum.net/support/internet-service-status/",
+    "fallback": {
+      "Downdetector": "https://downdetector.com/status/spectrum/",
+      "Outage.Report": "https://outage.report/us/spectrum",
+      "IsTheServiceDown": "https://istheservicedown.com/problems/spectrum"
     }
   },
   {
-    "zip": "N/A",
     "carrier": "Verizon",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://downdetector.com/status/verizon/"
+    "zip": "N/A",
+    "time": "2025-09-28T00:48:01.243969",
+    "summary": "See fallback links",
+    "official": "https://www.verizon.com/support/outage/",
+    "fallback": {
+      "Downdetector": "https://downdetector.com/status/verizon/",
+      "Outage.Report": "https://outage.report/us/verizon",
+      "IsTheServiceDown": "https://istheservicedown.com/problems/verizon"
     }
   },
   {
-    "zip": "N/A",
     "carrier": "Lumen",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://downdetector.com/status/centurylink/"
+    "zip": "N/A",
+    "time": "2025-09-28T00:48:01.243969",
+    "summary": "See fallback links",
+    "official": "https://www.lumen.com/help/en-us/understanding-service-status.html",
+    "fallback": {
+      "Downdetector": "https://downdetector.com/status/centurylink/",
+      "Outage.Report": "https://outage.report/us/centurylink",
+      "IsTheServiceDown": "https://istheservicedown.com/problems/centurylink"
     }
   },
   {
-    "zip": "N/A",
     "carrier": "Windstream",
-    "time": "2025-09-28T00:41:08.448657",
-    "result": {
-      "summary": "Error: name 'HEADERS' is not defined",
-      "url": "https://downdetector.com/status/windstream/"
+    "zip": "N/A",
+    "time": "2025-09-28T00:48:01.243969",
+    "summary": "See fallback links",
+    "official": "https://www.windstream.com/support/network-status",
+    "fallback": {
+      "Downdetector": "https://downdetector.com/status/windstream/",
+      "Outage.Report": "https://outage.report/us/windstream",
+      "IsTheServiceDown": "https://istheservicedown.com/problems/windstream"
     }
   }
 ]
