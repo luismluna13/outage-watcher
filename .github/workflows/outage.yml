@@ -29,20 +29,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run outage watcher
+      - name: Run outage watcher (generate HTML)
         run: python outage_watcher.py
 
-      - name: Upload Pages artifact
+      - name: Upload to Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
 
   deploy:
-    runs-on: ubuntu-latest
-    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
