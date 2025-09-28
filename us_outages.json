@@ -1,0 +1,38 @@
+[
+  {
+    "carrier": "Comcast",
+    "url": "https://downdetector.com/status/xfinity/",
+    "error": "403 Client Error: Forbidden for url: https://downdetector.com/status/xfinity/",
+    "timestamp": "2025-09-27T20:20:45.120377"
+  },
+  {
+    "carrier": "AT&T",
+    "url": "https://downdetector.com/status/att/",
+    "error": "403 Client Error: Forbidden for url: https://downdetector.com/status/att/",
+    "timestamp": "2025-09-27T20:20:45.221583"
+  },
+  {
+    "carrier": "Spectrum",
+    "url": "https://downdetector.com/status/spectrum/",
+    "error": "403 Client Error: Forbidden for url: https://downdetector.com/status/spectrum/",
+    "timestamp": "2025-09-27T20:20:45.323302"
+  },
+  {
+    "carrier": "Verizon",
+    "url": "https://downdetector.com/status/verizon/",
+    "error": "403 Client Error: Forbidden for url: https://downdetector.com/status/verizon/",
+    "timestamp": "2025-09-27T20:20:45.425294"
+  },
+  {
+    "carrier": "Lumen",
+    "url": "https://downdetector.com/status/centurylink/",
+    "error": "403 Client Error: Forbidden for url: https://downdetector.com/status/centurylink/",
+    "timestamp": "2025-09-27T20:20:45.532619"
+  },
+  {
+    "carrier": "Windstream",
+    "url": "https://downdetector.com/status/windstream/",
+    "error": "403 Client Error: Forbidden for url: https://downdetector.com/status/windstream/",
+    "timestamp": "2025-09-27T20:20:45.629330"
+  }
+]
