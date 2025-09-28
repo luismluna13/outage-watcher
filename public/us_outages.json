@@ -1,0 +1,92 @@
+[
+  {
+    "zip": "32801",
+    "carrier": "Xfinity",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://www.xfinity.com/support/statusmap"
+    }
+  },
+  {
+    "zip": "32801",
+    "carrier": "AT&T",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://www.att.com/outages/"
+    }
+  },
+  {
+    "zip": "10001",
+    "carrier": "Xfinity",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://www.xfinity.com/support/statusmap"
+    }
+  },
+  {
+    "zip": "10001",
+    "carrier": "AT&T",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://www.att.com/outages/"
+    }
+  },
+  {
+    "zip": "90001",
+    "carrier": "Xfinity",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://www.xfinity.com/support/statusmap"
+    }
+  },
+  {
+    "zip": "90001",
+    "carrier": "AT&T",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://www.att.com/outages/"
+    }
+  },
+  {
+    "zip": "N/A",
+    "carrier": "Spectrum",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://downdetector.com/status/spectrum/"
+    }
+  },
+  {
+    "zip": "N/A",
+    "carrier": "Verizon",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://downdetector.com/status/verizon/"
+    }
+  },
+  {
+    "zip": "N/A",
+    "carrier": "Lumen",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://downdetector.com/status/centurylink/"
+    }
+  },
+  {
+    "zip": "N/A",
+    "carrier": "Windstream",
+    "time": "2025-09-27T20:22:22.071853",
+    "result": {
+      "summary": "Error: name 'HEADERS' is not defined",
+      "url": "https://downdetector.com/status/windstream/"
+    }
+  }
+]
