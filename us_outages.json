@@ -2,16 +2,16 @@
   {
     "carrier": "Xfinity",
     "zip": "32801",
-    "time": "2025-09-29T03:55:50.626823",
+    "time": "2025-09-29T04:41:50.456834",
     "result": {
-      "summary": "Error: HTTPSConnectionPool(host='api.xfinity.com', port=443): Max retries exceeded with url: /outages-service/v1/location?zip=32801 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f6a91b54410>: Failed to resolve 'api.xfinity.com' ([Errno -5] No address associated with hostname)\"))",
+      "summary": "Error: HTTPSConnectionPool(host='api.xfinity.com', port=443): Max retries exceeded with url: /outages-service/v1/location?zip=32801 (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f9729468950>: Failed to resolve 'api.xfinity.com' ([Errno -5] No address associated with hostname)\"))",
       "url": "https://www.xfinity.com/support/statusmap"
     }
   },
   {
     "carrier": "AT&T",
     "zip": "N/A",
-    "time": "2025-09-29T03:55:50.626823",
+    "time": "2025-09-29T04:41:50.456834",
     "result": {
       "summary": "AT&T requires login \u2014 showing public outage page preview",
       "url": "https://www.att.com/outages/"
@@ -20,7 +20,7 @@
   {
     "carrier": "Spectrum",
     "zip": "N/A",
-    "time": "2025-09-29T03:55:50.626823",
+    "time": "2025-09-29T04:41:50.456834",
     "result": {
       "summary": "See fallback links",
       "url": "https://www.spectrum.net/support/internet-service-status/"
@@ -29,7 +29,7 @@
   {
     "carrier": "Verizon",
     "zip": "N/A",
-    "time": "2025-09-29T03:55:50.626823",
+    "time": "2025-09-29T04:41:50.456834",
     "result": {
       "summary": "See fallback links",
       "url": "https://www.verizon.com/support/outage/"
@@ -38,7 +38,7 @@
   {
     "carrier": "Lumen",
     "zip": "N/A",
-    "time": "2025-09-29T03:55:50.626823",
+    "time": "2025-09-29T04:41:50.456834",
     "result": {
       "summary": "See fallback links",
       "url": "https://www.lumen.com/help/en-us/understanding-service-status.html"
@@ -47,7 +47,7 @@
   {
     "carrier": "Windstream",
     "zip": "N/A",
-    "time": "2025-09-29T03:55:50.626823",
+    "time": "2025-09-29T04:41:50.456834",
     "result": {
       "summary": "See fallback links",
       "url": "https://www.windstream.com/support/network-status"
